@@ -2,7 +2,7 @@
 
 const api = require('./api')
 const ui = require('./ui')
-const getFormFields = require('../../lib/get-form-fields.js')
+const getFormFields = require('../../../lib/get-form-fields.js')
 
 const onGetMovies = function () {
   event.preventDefault()

@@ -39,7 +39,7 @@ const signOutFailure = () => {
   $('.message').text('Sign out has failed.').css('color', 'red')
 }
 
-//reset values?
+// reset values?
 $('').val('')
 
 module.exports = {

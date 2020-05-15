@@ -2,13 +2,14 @@
 
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
-const events = require('./events.js')
+const movieEvents = require('./movies/events.js')
+const authEvents = require('./auth/events.js')
 // use require without a reference to ensure a file is bundled
 // require('./example')
 
 $(() => {
-  $('#movies').on('click', events.onGetMovies)
-  $('#newMovie').on('submit', events.onCreateMovie)
+  $('#movies').on('click', movieEvents.onGetMovies)
+  $('#newMovie').on('submit', movieEvents.onCreateMovie)
 
   $('.rating input:radio').attr('checked', false)
   $('.rating input').click(function () {
