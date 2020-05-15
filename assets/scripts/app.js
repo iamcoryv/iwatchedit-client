@@ -8,8 +8,15 @@ const authEvents = require('./auth/events.js')
 // require('./example')
 
 $(() => {
+  $('#sign-up').on('submit', authEvents.onSignUp)
+  $('#sign-in').on('submit', authEvents.onSignIn)
+  $('#change-password').on('submit', authEvents.onChangePassword)
+  $('#sign-out').on('submit', authEvents.onSignOut)
+
   $('#movies').on('click', movieEvents.onGetMovies)
   $('#newMovie').on('submit', movieEvents.onCreateMovie)
+
+
 
   $('.rating input:radio').attr('checked', false)
   $('.rating input').click(function () {

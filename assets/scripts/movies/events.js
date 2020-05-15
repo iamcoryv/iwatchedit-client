@@ -4,9 +4,9 @@ const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields.js')
 
-const onGetMovies = function () {
+const onGetMovies = function (event) {
   event.preventDefault()
-  api.getPeople()
+  api.getMovies()
     .then(ui.getMoviesSuccess)
     .catch(ui.getMoviesFailure)
 }

@@ -1,9 +1,9 @@
 'use strict'
 
 const getMoviesSuccess = function (data) {
-  const movies = data.person
-  const jsonMovies = JSON.stringify(movies)
-  $('.response').html(`<p> ${jsonMovies} </p>`)
+  const jsonMovies = JSON.stringify(data)
+  $('.response').text(`Got movies`)
+  $('.movies-show').html(`<p> ${jsonMovies} </p>`)
 }
 
 const getMoviesFailure = function () {

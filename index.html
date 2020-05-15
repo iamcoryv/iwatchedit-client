@@ -16,6 +16,38 @@
       <button id="movies"> Click me for People</button>
       <div class="response"></div>
 
+      <div id="unauthenticated">
+              <h2>Sign in below!</h2>
+            <form id="sign-in">
+              <input required type="text" placeholder="User Email" name="credentials[email]">
+              <input required type="password" placeholder="User Password" name="credentials[password]">
+              <button type="submit">Sign In</button>
+            </form>
+              <br>
+            <h4> New? then Sign Up below!</h4>
+              <br>
+            <form id="sign-up">
+              <input required type="text" placeholder="User Email" name="credentials[email]">
+              <input required type="password" placeholder="User Password" name="credentials[password]">
+              <input required type="password" placeholder="Password Confirmation" name="credentials[password_confirmation]">
+              <button type="submit">Sign Up</button>
+            </form>
+          </div>
+
+            <div id="authenticated">
+            <form id="change-password">
+              <input required type="password" placeholder="New password" name="passwords[new]">
+              <input required type="password" placeholder="Old Password" name="passwords[old]">
+              <button type="submit">Change Password</button>
+            </form>
+
+            <form id="sign-out">
+              <button type="submit">Sign out</button>
+            </form>
+            </div>
+          </br>
+        </br>
+    <div id="container">
       <form id="newMovie">
         <input class="inputs" type="text" placeholder="Title" name="movie[title]">
         <textarea class="inputs" rows="3" cols="30" name="movie[thoguhts]">Thoughts...</textarea>
@@ -30,5 +62,8 @@
         </div>
         <button type="submit"> submit</button>
       </form>
+    </div>
+
+    <div class="movies-show"></div>
     </body>
 </html>

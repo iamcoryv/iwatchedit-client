@@ -3,31 +3,34 @@
 const store = require('../store')
 
 const signUpSuccess = data => {
-  $('.message').text('You are all signed up! Time to log in.')
+  $('.response').text('You are all signed up! Time to log in.')
+  $('form').trigger('reset')
 }
 
 const signUpFailure = error => {
   console.log(error)
-  $('.message').text('Could not create user, try again')
+  $('.response').text('Could not create user, try again')
 }
 
 const signInSuccess = data => {
   console.log(data)
   store.user = data.user
-  $('.message').text('Signed in!')
+  $('.response').text('Signed in!')
+  $('form').trigger('reset')
 }
 
 const signInFailure = error => {
   console.log(error)
-  $('.message').text('Failed to sign in, try again!')
+  $('.response').text('Failed to sign in, try again!')
 }
 
 const changePasswordSuccess = data => {
-  $('.message').text('Password changed!')
+  $('.response').text('Password changed!')
+  $('form').trigger('reset')
 }
 
 const changePasswordFailure = () => {
-  $('.message').text('Cant change password, maybe you had a typo.')
+  $('.response').text('Cant change password, maybe you had a typo.')
 }
 
 const signOutSuccess = data => {
@@ -36,7 +39,7 @@ const signOutSuccess = data => {
 }
 
 const signOutFailure = () => {
-  $('.message').text('Sign out has failed.').css('color', 'red')
+  $('.response').text('Sign out has failed.').css('color', 'red')
 }
 
 // reset values?
