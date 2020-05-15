@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Example</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <h1>Browser Template</h1>
+      <button id="movies"> Click me for People</button>
+      <div class="response"></div>
+
+      <form id="newMovie">
+        <input class="inputs" type="text" placeholder="Title" name="movie[title]">
+        <textarea class="inputs" rows="3" cols="30" name="movie[thoguhts]">Thoughts...</textarea>
+        <input class="inputs" type="checkbox" name="movie[rewatch]" value="true">Rewatchable?
+        <input class="inputs" type="checkbox" name="movie[favorite]" value="true">Favorite?
+        <div class="rating inputs" name="movie[rating]">
+            <span><input type="radio" name="rating" id="str5" value="5"><label for="str5"></label></span>
+            <span><input type="radio" name="rating" id="str4" value="4"><label for="str4"></label></span>
+            <span><input type="radio" name="rating" id="str3" value="3"><label for="str3"></label></span>
+            <span><input type="radio" name="rating" id="str2" value="2"><label for="str2"></label></span>
+            <span><input type="radio" name="rating" id="str1" value="1"><label for="str1"></label></span>
+        </div>
+        <button type="submit"> submit</button>
+      </form>
+    </body>
+</html>
