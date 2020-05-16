@@ -12,19 +12,19 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
-      <button id="movies"> Click me for People</button>
+      <h1>iWatchedIt</h1>
+      <button id="movies"> Click for movies</button>
       <div class="response"></div>
 
       <div id="unauthenticated">
-              <h2>Sign in below!</h2>
+              <h2>Sign in!</h2>
             <form id="sign-in">
               <input required type="text" placeholder="User Email" name="credentials[email]">
               <input required type="password" placeholder="User Password" name="credentials[password]">
               <button type="submit">Sign In</button>
             </form>
               <br>
-            <h4> New? then Sign Up below!</h4>
+            <h4>Sign Up!</h4>
               <br>
             <form id="sign-up">
               <input required type="text" placeholder="User Email" name="credentials[email]">
@@ -49,10 +49,12 @@
         </br>
     <div id="container">
       <form id="newMovie">
-        <input class="inputs" type="text" placeholder="Title" name="movie[title]">
-        <textarea class="inputs" rows="3" cols="30" name="movie[thoguhts]">Thoughts...</textarea>
-        <input class="inputs" type="checkbox" name="movie[rewatch]" value="true">Rewatchable?
-        <input class="inputs" type="checkbox" name="movie[favorite]" value="true">Favorite?
+        <input class="inputs" type="text" placeholder="Title" name="movie[name]">
+        <textarea class="inputs" rows="3" cols="30" name="movie[thoughts]">Thoughts...</textarea>
+        <p class="check">Rewatchable?</p>
+        <input class="inputs check" type="checkbox" name="movie[rewatch]" value="true">
+        <p class="check">Favorite?</p>
+        <input class="inputs check" type="checkbox" name="movie[favorite]" value="true">
         <div class="rating inputs" name="movie[rating]">
             <span><input type="radio" name="rating" id="str5" value="5"><label for="str5"></label></span>
             <span><input type="radio" name="rating" id="str4" value="4"><label for="str4"></label></span>

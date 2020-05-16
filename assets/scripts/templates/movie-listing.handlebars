@@ -1,0 +1,13 @@
+{{#each movie as |movie|}}
+  {{log movie}}
+  <section data-id="{{movie.id}}">
+    <h6>Name:</h6>
+    <h3>
+      {{limit movie.name 15}}
+    </h3>
+    <p>
+      {{limit movie.thoughts 15}}
+    </p>
+  </section>
+  {{> remove-btn id=movie.id}}
+{{/each}}
