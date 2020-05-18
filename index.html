@@ -12,8 +12,16 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
+  <!-- NAV -->
+  <nav class="navbar fixed-top navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">iWatchedIt</a>
+    <button class="btn btn-secondary btn-md" id="movies"> See Watched</button>
+    <button class="btn btn-secondary btn-md" is="new-movie">Add New</button>
+
+  </nav>
+
+
       <h1>iWatchedIt</h1>
-      <button id="movies"> Click for movies</button>
       <div class="response"></div>
 
       <div id="unauthenticated">
@@ -24,6 +32,8 @@
               <button type="submit">Sign In</button>
             </form>
               <br>
+              <div class="alert alert-success" role="alert">
+              </div>
             <h4>Sign Up!</h4>
               <br>
             <form id="sign-up">
@@ -55,12 +65,19 @@
         <input class="inputs check" type="checkbox" name="movie[rewatch]" value="true">
         <p class="check">Favorite?</p>
         <input class="inputs check" type="checkbox" name="movie[favorite]" value="true">
-        <div class="rating inputs" name="movie[rating]">
-            <span><input type="radio" name="rating" id="str5" value="5"><label for="str5"></label></span>
-            <span><input type="radio" name="rating" id="str4" value="4"><label for="str4"></label></span>
-            <span><input type="radio" name="rating" id="str3" value="3"><label for="str3"></label></span>
-            <span><input type="radio" name="rating" id="str2" value="2"><label for="str2"></label></span>
-            <span><input type="radio" name="rating" id="str1" value="1"><label for="str1"></label></span>
+        <div class="rating inputs stars" name="movie[rating]">
+          <span class="rating">
+              <input id="rating5" type="radio" name="rating" value="5">
+              <label for="rating5">5</label>
+              <input id="rating4" type="radio" name="rating" value="4">
+              <label for="rating4">4</label>
+              <input id="rating3" type="radio" name="rating" value="3">
+              <label for="rating3">3</label>
+              <input id="rating2" type="radio" name="rating" value="2" checked>
+              <label for="rating2">2</label>
+              <input id="rating1" type="radio" name="rating" value="1">
+              <label for="rating1">1</label>
+          </span>
         </div>
         <button type="submit"> submit</button>
       </form>

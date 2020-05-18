@@ -17,6 +17,8 @@ const signInSuccess = data => {
   store.user = data.user
   $('.response').text('Signed in!')
   $('form').trigger('reset')
+  $('.alert').text('Signed in succesfully!')
+  $('.alert').show('slow').delay(4000).fadeOut()
 }
 
 const signInFailure = error => {
@@ -35,6 +37,7 @@ const changePasswordFailure = () => {
 
 const signOutSuccess = data => {
   store.user = null
+  $('.response').text('')
   $('.').hide()
 }
 

@@ -16,6 +16,7 @@ $(() => {
   $('#movies').on('click', movieEvents.onGetMovies)
   $('#newMovie').on('submit', movieEvents.onCreateMovie)
 
+  $('.alert').hide()
 
 
   $('.rating input:radio').attr('checked', false)

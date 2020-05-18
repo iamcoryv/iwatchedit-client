@@ -1,13 +1,21 @@
 {{#each movie as |movie|}}
   {{log movie}}
-  <section data-id="{{movie.id}}">
-    <h6>Name:</h6>
-    <h3>
+<div class="card" data-id="{{movie.id}}">
+<div class="card-header">
       {{limit movie.name 15}}
-    </h3>
-    <p>
+</div>
+<div class="card-body">
+<p class="card-text">
       {{limit movie.thoughts 15}}
-    </p>
-  </section>
-  {{> remove-btn id=movie.id}}
+</p>
+  {{#if favorite}}
+  <p>Fav</p>
+  {{/if}}
+  {{#if rewatch}}
+  <p>Rewatchable</p>
+  {{/if}}
+
+{{> remove-btn id=movie.id}}
+</div>
+</div>
 {{/each}}
