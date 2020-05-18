@@ -26,9 +26,23 @@ const createMovieFailure = function (error) {
   $('form').trigger('reset')
 }
 
+const deleteMovieSuccess = function (data) {
+  $('.response').text(`Movie ${data} deleted!`)
+  $('form').trigger('reset')
+  console.log('ui success triggered')
+}
+
+const deleteMovieFailure = function (error) {
+  $('.response').text('Couldnt delete movie...')
+  console.log(error)
+  $('form').trigger('reset')
+}
+
 module.exports = {
   getMoviesFailure,
   getMoviesSuccess,
   createMovieFailure,
-  createMovieSuccess
+  createMovieSuccess,
+  deleteMovieSuccess,
+  deleteMovieFailure
 }

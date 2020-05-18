@@ -57,10 +57,11 @@
             </div>
           </br>
         </br>
-    <div id="container">
+    <div class="container">
+      <div class="row">
       <form id="newMovie">
         <input class="inputs" type="text" placeholder="Title" name="movie[name]">
-        <textarea class="inputs" rows="3" cols="30" name="movie[thoughts]">Thoughts...</textarea>
+        <textarea class="inputs" rows="3" cols="30" placeholder="Thoughts..." name="movie[thoughts]"></textarea>
         <p class="check">Rewatchable?</p>
         <input class="inputs check" type="checkbox" name="movie[rewatch]" value="true">
         <p class="check">Favorite?</p>
@@ -78,9 +79,11 @@
               <input id="rating1" type="radio" name="rating" value="1">
               <label for="rating1">1</label>
           </span>
+
         </div>
         <button type="submit"> submit</button>
       </form>
+      </div>
     </div>
 
     <div class="movies-show"></div>

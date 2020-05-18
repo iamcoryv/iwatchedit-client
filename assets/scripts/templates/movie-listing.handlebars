@@ -1,12 +1,11 @@
 {{#each movie as |movie|}}
-  {{log movie}}
 <div class="card" data-id="{{movie.id}}">
 <div class="card-header">
-      {{limit movie.name 15}}
+      {{limit movie.name 20}}
 </div>
 <div class="card-body">
 <p class="card-text">
-      {{limit movie.thoughts 15}}
+      {{limit movie.thoughts 45}}
 </p>
   {{#if favorite}}
   <p>Fav</p>
@@ -15,7 +14,7 @@
   <p>Rewatchable</p>
   {{/if}}
 
-{{> remove-btn id=movie.id}}
+{{> remove-btn id=movie.id }}
 </div>
 </div>
 {{/each}}

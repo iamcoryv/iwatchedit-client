@@ -45,7 +45,6 @@ const getOneMovie = id => {
 }
 
 const deleteMovie = id => {
-  console.log(id)
   return $.ajax({
     url: config.apiUrl + '/movies/' + id,
     method: 'DELETE',

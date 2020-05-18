@@ -20,7 +20,17 @@ const onCreateMovie = function (event) {
     .catch(ui.createMovieFailure)
 }
 
+const onDeleteMovie = function () {
+  console.log('event triggered')
+  const id = $('.remove-movie').data('id')
+  console.log(id)
+  api.deleteMovie(id)
+    .then(ui.deleteMovieSuccess)
+    .catch(ui.deleteMovieFailure)
+}
+
 module.exports = {
   onGetMovies,
-  onCreateMovie
+  onCreateMovie,
+  onDeleteMovie
 }
