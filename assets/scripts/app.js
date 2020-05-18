@@ -8,6 +8,7 @@ const authEvents = require('./auth/events.js')
 // require('./example')
 
 $(() => {
+  $('#sign-in-modal').modal('show')
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePassword)
@@ -20,18 +21,24 @@ $(() => {
   // $('.movies-show').on('click', '.update-movie', )
 
   $('.alert').hide()
-
-  $('.rating input:radio').attr('checked', false)
-  $('.rating input').click(function () {
-    $('.rating span').removeClass('checked')
-    $(this).parent().addClass('checked')
+  $('#sign-up').on('submit', function () {
+    $('#sign-up-modal').modal('toggle')
   })
-  $('input:radio').change(
-    function () {
-      const userRating = this.value
-      // test alert get rid of this later, annoying and no alerts
-      alert(userRating)
-    })
+  $('#sign-in').on('submit', function () {
+    $('#sign-in-modal').modal('toggle')
+  })
+
+  // $('.rating input:radio').attr('checked', false)
+  // $('.rating input').click(function () {
+  //   $('.rating span').removeClass('checked')
+  //   $(this).parent().addClass('checked')
+  // })
+  // $('input:radio').change(
+  //   function () {
+  //     const userRating = this.value
+  //     // test alert get rid of this later, annoying and no alerts
+  //     alert(userRating)
+  //   })
 
   $('#searchMovie').on('submit', movieEvents.onSearchMovies)
 
@@ -40,15 +47,7 @@ $('.updateMovie').on('submit', movieEvents.onUpdateMovie)
   $('.movies-show').on('click', '.update-movie', data => {
     const id = $('.update-movie').data('id')
     $('#idForm').attr('value', id)
+    $('.modal-title').text(`Update entry ${id}`)
   })
-
-  // $('.movies-show').on('click', '.update-movie', movie => {
-  //   // $('notyetmodal').show()
-  //   console.log(movie)
-  //   const currentId = $('.update-movie').data('id')
-  //   console.log(currentId)
-  //   $('#updateTitle').attr('placeholder', '.card-header')
-  //   $('#updateThoughts').attr('placeholder', 'hi')
-  // })
 
 })

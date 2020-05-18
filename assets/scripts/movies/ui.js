@@ -13,6 +13,7 @@ const getMoviesSuccess = function (data) {
 }
 
 const getMovieSuccess = function (data) {
+  $('form').trigger('reset')
   $('.response').text(`Got movie`)
   console.log(data)
   // $('.movies-show').html(`<p> ${jsonMovies} </p>`)
@@ -22,6 +23,7 @@ const getMovieSuccess = function (data) {
 }
 
 const findOneMovieSuccess = function (data) {
+  $('form').trigger('reset')
   $('.response').text(`Got movie`)
   console.log(data)
   // $('.movies-show').html(`<p> ${jsonMovies} </p>`)

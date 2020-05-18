@@ -8,10 +8,13 @@
       {{limit movie.thoughts 45}}
 </p>
   {{#if favorite}}
-  <p>Fav</p>
+  <p>Favorite</p>
   {{/if}}
   {{#if rewatch}}
   <p>Rewatchable</p>
+  {{/if}}
+  {{#if rating}}
+  <p> {{limit movie.rating 2}} </p>
   {{/if}}
 
 {{> remove-btn id=movie.id }}

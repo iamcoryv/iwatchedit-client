@@ -50,3 +50,10 @@
 }
 
 .rating > label:hover:before,  .rating > label:hover ~ label:before,  .rating:not(:hover) > :checked ~ label:before { opacity: 1; }
+
+
+
+.stars {
+  display: block;
+  text-align: center;
+}

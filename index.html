@@ -16,33 +16,83 @@
   <nav class="navbar fixed-top navbar-dark bg-dark">
     <a class="navbar-brand" href="#">iWatchedIt</a>
     <button class="btn btn-secondary btn-md" id="movies"> See Watched</button>
-    <button class="btn btn-secondary btn-md" is="new-movie">Add New</button>
+    <!-- <button class="btn btn-secondary btn-md" data-toggle="modal" data-target="#sign-up-modal"> Sign Up</button> -->
+    <button class="btn btn-secondary btn-md"data-toggle="modal" data-target="#newMovieModal">Add New</button>
 
   </nav>
 
 
       <h1>iWatchedIt</h1>
       <div class="response"></div>
+      <div class="alert alert-success" role="alert"></div>
+  <!-- Sign up modal -->
+  <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog"  aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" >Sign Up</h5>
+                <span aria-hidden="true">&times;</span
+                  </button>
+            </div>
+            <div class="modal-body">
+              <form class="sign-up" id="sign-up">
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Email</label>
+                  <input class="form-control" required type="text" placeholder="Enter Your Email" name="credentials[email]">
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Password</label>
+                  <input class="form-control"  required type="password" placeholder="Enter Your Password" name="credentials[password]">
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Confirm Password</label>
+                  <input class="form-control"  required type="password" placeholder="Confirm Password" name="credentials[password_confirmation]">
+                </div>
 
-      <div id="unauthenticated">
-              <h2>Sign in!</h2>
-            <form id="sign-in">
-              <input required type="text" placeholder="User Email" name="credentials[email]">
-              <input required type="password" placeholder="User Password" name="credentials[password]">
-              <button type="submit">Sign In</button>
-            </form>
-              <br>
-              <div class="alert alert-success" role="alert">
-              </div>
-            <h4>Sign Up!</h4>
-              <br>
-            <form id="sign-up">
-              <input required type="text" placeholder="User Email" name="credentials[email]">
-              <input required type="password" placeholder="User Password" name="credentials[password]">
-              <input required type="password" placeholder="Password Confirmation" name="credentials[password_confirmation]">
-              <button type="submit">Sign Up</button>
-            </form>
+            <div class="modal-footer">
+              <!-- <button id="close-modal" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+              <button id="closeSignup" type="submit" class="btn btn-outline-secondary sign-up-button" data-toggle="modal"  data-target="#sign-in-modal">Confirm</button>
+            </div>
+              </form>
+        </div>
           </div>
+        </div>
+      </div>
+<!-- End sign up modal  -->
+
+<!-- Sign in modal -->
+<div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog"  aria-hidden="true"  data-backdrop="static" data-keyboard="false">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" >Sign In</h5>
+              <span aria-hidden="true">&times;</span
+                </button>
+          </div>
+          <div class="modal-body">
+            <form class="sign-in" id="sign-in">
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Email</label>
+                <input class="form-control" required type="text" placeholder="Enter Your Email" name="credentials[email]">
+              </div>
+              <div class="form-group">
+                <label for="message-text" class="col-form-label">Password</label>
+                <input class="form-control"  required type="password" placeholder="Enter Your Password" name="credentials[password]">
+              </div>
+              <div class="form-group">
+                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#sign-up-modal" data-dismiss="modal">Sign Up</button>
+              </div>
+
+          <div class="modal-footer">
+            <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+            <button type="submit" class="btn btn-outline-secondary sign-in-button">Confirm</button>
+          </div>
+            </form>
+      </div>
+        </div>
+      </div>
+    </div>
+<!-- Sign in modal finish -->
 
             <div id="authenticated">
             <form id="change-password">
@@ -55,38 +105,60 @@
               <button type="submit">Sign out</button>
             </form>
             </div>
-          </br>
-        </br>
-    <div class="container">
-      <!-- <div class="row">
-      <form id="newMovie">
-        <input class="inputs" type="text" placeholder="Title" name="movie[name]">
-        <textarea class="inputs" rows="3" cols="30" placeholder="Thoughts..." name="movie[thoughts]"></textarea>
-        <p class="check">Rewatchable?</p>
-        <input class="inputs check" type="checkbox" name="movie[rewatch]" value="true">
-        <p class="check">Favorite?</p>
-        <input class="inputs check" type="checkbox" name="movie[favorite]" value="true">
-        <div class="rating inputs stars" name="movie[rating]">
-          <span class="rating">
-              <input id="rating5" type="radio" name="rating" value="5">
-              <label for="rating5">5</label>
-              <input id="rating4" type="radio" name="rating" value="4">
-              <label for="rating4">4</label>
-              <input id="rating3" type="radio" name="rating" value="3">
-              <label for="rating3">3</label>
-              <input id="rating2" type="radio" name="rating" value="2" checked>
-              <label for="rating2">2</label>
-              <input id="rating1" type="radio" name="rating" value="1">
-              <label for="rating1">1</label>
-          </span>
 
+<!-- new movie modal       -->
+<div class="modal fade container-fluid" id="newMovieModal" tabindex="-1" role="dialog"  aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" >Update Entry</h5>
+              <span aria-hidden="true">&times;</span
+                </button>
+          </div>
+          <div class="modal-body">
+            <form id="newMovie">
+              <div class="form-group">
+                <input class="inputs form-control" type="text" name="id" value="true" text=" " style="display: none;">
+                <label class="col-form-label">Title</label>
+                <input class="inputs form-control" type="text" placeholder="Title" name="movie[name]">
+              </div>
+              <div class="form-group">
+                <label for="message-text" class="col-form-label">Thoughts</label>
+                <textarea class="inputs form-control" rows="3" cols="30" placeholder="Thoughts..." name="movie[thoughts]"></textarea>
+              </div>
+              <div class="form-group">
+                <p class="check">Rewatchable?</p>
+                <input class="inputs check" type="checkbox" name="movie[rewatch]" value="true">
+                <p class="check">Favorite?</p>
+                <input class="inputs check" type="checkbox" name="movie[favorite]" value="true">
+                <!-- <div class="rating inputs stars" name="movie[rating]">
+                  <span class="rating" >
+                      <input id="rating5" type="radio" name="rating" value="5">
+                      <label for="rating5">5</label>
+                      <input id="rating4" type="radio" name="rating" value="4">
+                      <label for="rating4">4</label>
+                      <input id="rating3" type="radio" name="rating" value="3">
+                      <label for="rating3">3</label>
+                      <input id="rating2" type="radio" name="rating" value="2" checked>
+                      <label for="rating2">2</label>
+                      <input id="rating1" type="radio" name="rating" value="1">
+                      <label for="rating1">1</label>
+                  </span>
+                </div> -->
+              </div>
+          <div class="modal-footer">
+            <button type="button close-modal" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-outline-secondary create-button">Confirm</button>
+          </div>
+            </form>
+      </div>
         </div>
-        <button type="submit"> submit</button>
-      </form>
-      </div> -->
+      </div>
+    </div>
+ <!-- new movie modal finished -->
 
 <!-- update modal -->
-    <div class="modal fade" id="updateModal" tabindex="-1" role="dialog"  aria-hidden="true">
+    <div class="modal fade container-fluid" id="updateModal" tabindex="-1" role="dialog"  aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -97,21 +169,21 @@
               <div class="modal-body">
                 <form class="updateMovie">
                   <div class="form-group">
-                    <input id="idForm" class="inputs" type="text" name="id" value="true" text=" " style="display: none;">
+                    <input id="idForm" class="inputs " type="text" name="id" value="true" text=" " style="display: none;">
                     <label class="col-form-label">Title</label>
-                    <input id="updateTitle"class="inputs" type="text" placeholder="Title" name="movie[name]">
+                    <input id="updateTitle"class="inputs form-control" type="text" placeholder="Title" name="movie[name]">
                   </div>
-                  <div class="form-group">
+                  <div class="form-group ">
                     <label for="message-text" class="col-form-label">Thoughts</label>
-                    <textarea id="updateThoughts"class="inputs" rows="3" cols="30" placeholder="Thoughts..." name="movie[thoughts]"></textarea>
+                    <textarea id="updateThoughts"class="inputs form-control" rows="3" cols="30" placeholder="Thoughts..." name="movie[thoughts]"></textarea>
                   </div>
                   <div class="form-group">
                     <p class="check">Rewatchable?</p>
                     <input class="inputs check" type="checkbox" name="movie[rewatch]" value="true">
                     <p class="check">Favorite?</p>
                     <input class="inputs check" type="checkbox" name="movie[favorite]" value="true">
-                    <div class="rating inputs stars" name="movie[rating]">
-                      <span class="rating">
+                    <!-- <div class="rating inputs stars" name="movie[rating]">
+                      <span class="rating" >
                           <input id="rating5" type="radio" name="rating" value="5">
                           <label for="rating5">5</label>
                           <input id="rating4" type="radio" name="rating" value="4">
@@ -123,11 +195,10 @@
                           <input id="rating1" type="radio" name="rating" value="1">
                           <label for="rating1">1</label>
                       </span>
-                    </div>
+                    </div> -->
                   </div>
-
               <div class="modal-footer">
-                <button id="close-modal" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary close-modal" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-outline-secondary update-button">Confirm</button>
               </div>
                 </form>
