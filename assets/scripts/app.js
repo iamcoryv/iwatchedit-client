@@ -35,10 +35,11 @@ $(() => {
 
   $('#searchMovie').on('submit', movieEvents.onSearchMovies)
 
+// update stuff
+$('.updateMovie').on('submit', movieEvents.onUpdateMovie)
   $('.movies-show').on('click', '.update-movie', data => {
-    // $('notyetmodal').show()
     const id = $('.update-movie').data('id')
-    $('#updateTitle').attr('placeholder', id)
+    $('#idForm').attr('value', id)
   })
 
   // $('.movies-show').on('click', '.update-movie', movie => {

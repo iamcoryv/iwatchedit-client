@@ -70,10 +70,23 @@ const onSearchMovies = function (event) {
     // })
 }
 
+const onUpdateMovie = function (event) {
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  // const id = formData.id
+  // console.log(id)
+  console.log(formData)
+  api.updateMovie(formData)
+    .then(ui.updateMovieSuccess)
+    .catch(ui.updateMovieFailure)
+}
+
 module.exports = {
   onGetMovies,
   onCreateMovie,
   onDeleteMovie,
   onSearchMovies,
-  onFindOneMovie
+  onFindOneMovie,
+  onUpdateMovie
 }

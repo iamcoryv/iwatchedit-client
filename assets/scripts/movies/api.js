@@ -3,9 +3,9 @@
 const store = require('../store')
 const config = require('../config')
 
-const updateMovie = (data, id) => {
+const updateMovie = (data) => {
   return $.ajax({
-    url: config.apiUrl + '/movies/' + id,
+    url: config.apiUrl + '/movies/' + data.id,
     method: 'PATCH',
     data: data,
     headers: {
