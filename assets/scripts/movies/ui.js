@@ -1,5 +1,6 @@
 'use strict'
 const showMoviesTemplate = require('../templates/movie-listing.handlebars')
+const showMovieTemplate = require('../templates/showMovie.handlebars')
 
 const getMoviesSuccess = function (data) {
   // const jsonMovies = JSON.stringify(data)
@@ -11,8 +12,29 @@ const getMoviesSuccess = function (data) {
   $('.movies-show').html(showMoviesHtml)
 }
 
-const getMoviesFailure = function () {
+const getMovieSuccess = function (data) {
+  $('.response').text(`Got movie`)
+  console.log(data)
+  // $('.movies-show').html(`<p> ${jsonMovies} </p>`)
+  const showMovieHtml = showMovieTemplate({ movie: data })
+  console.log(showMovieHtml)
+  $('.movies-show').html(showMovieHtml)
+}
+
+const findOneMovieSuccess = function (data) {
+  $('.response').text(`Got movie`)
+  console.log(data)
+  // $('.movies-show').html(`<p> ${jsonMovies} </p>`)
+  const showMovieHtml = showMovieTemplate({ movie: data.movie })
+  console.log(showMovieHtml)
+  $('.movies-show').html(showMovieHtml)
+}
+
+const getMovieFailure = function () {
   $('.response').text(`I couldn't get movies :(`)
+}
+const getMoviesFailure = function () {
+  $('.response').text(`I couldn't get movie you wanted`)
 }
 
 const createMovieSuccess = function (data) {
@@ -44,5 +66,8 @@ module.exports = {
   createMovieFailure,
   createMovieSuccess,
   deleteMovieSuccess,
-  deleteMovieFailure
+  deleteMovieFailure,
+  getMovieSuccess,
+  getMovieFailure,
+  findOneMovieSuccess
 }

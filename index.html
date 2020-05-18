@@ -58,7 +58,7 @@
           </br>
         </br>
     <div class="container">
-      <div class="row">
+      <!-- <div class="row">
       <form id="newMovie">
         <input class="inputs" type="text" placeholder="Title" name="movie[name]">
         <textarea class="inputs" rows="3" cols="30" placeholder="Thoughts..." name="movie[thoughts]"></textarea>
@@ -83,9 +83,85 @@
         </div>
         <button type="submit"> submit</button>
       </form>
+      </div> -->
+      <div class="row">
+      <form id="updateMovie">
+        <input id="updateTitle"class="inputs" type="text" placeholder="Title" name="movie[name]">
+        <textarea id="updateThoughts"class="inputs" rows="3" cols="30" placeholder="Thoughts..." name="movie[thoughts]"></textarea>
+        <p class="check">Rewatchable?</p>
+        <input class="inputs check" type="checkbox" name="movie[rewatch]" value="true">
+        <p class="check">Favorite?</p>
+        <input class="inputs check" type="checkbox" name="movie[favorite]" value="true">
+        <div class="rating inputs stars" name="movie[rating]">
+          <span class="rating">
+              <input id="rating5" type="radio" name="rating" value="5">
+              <label for="rating5">5</label>
+              <input id="rating4" type="radio" name="rating" value="4">
+              <label for="rating4">4</label>
+              <input id="rating3" type="radio" name="rating" value="3">
+              <label for="rating3">3</label>
+              <input id="rating2" type="radio" name="rating" value="2" checked>
+              <label for="rating2">2</label>
+              <input id="rating1" type="radio" name="rating" value="1">
+              <label for="rating1">1</label>
+          </span>
+
+        </div>
+        <button type="submit"> submit</button>
+      </form>
       </div>
     </div>
 
-    <div class="movies-show"></div>
+    <div class="row col-3">
+    <form id="searchMovie">
+      <input id="searchAttempt" class="inputs" type="text" placeholder="Title" name="name">
+      <button type="submit"> submit</button>
+    </form>
+    </div>
+    <div class="row col-3">
+    <form class="findOneMovie">
+      <input class="inputs" type="text" placeholder="ID" name="_id">
+      <button type="submit"> submit</button>
+    </form>
+  </div>
+    <div class="movies-show "></div>
+
+<!-- update modal -->
+    <div class="modal fade" id="updateModal" tabindex="-1" role="dialog"  aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" >Update Entry</h5>
+                  <span aria-hidden="true">&times;</span
+                    </button>
+              </div>
+              <div class="modal-body">
+                <form class="sign-up" id="sign-up-confirm">
+                  <div class="form-group">
+                    <label class="col-form-label">Title</label>
+                    <input id="updateTitle"class="inputs" type="text" placeholder="Title" name="movie[name]">
+                  </div>
+                  <div class="form-group">
+                    <label for="message-text" class="col-form-label">Thoughts</label>
+                    <input class="form-control"  required type="password" placeholder="Enter Your Password" name="credentials[password]">
+                  </div>
+                  <div class="form-group">
+                    <label for="message-text" class="col-form-label">Confirm Password</label>
+                    <input class="form-control"  required type="password" placeholder="Confirm Password" name="credentials[password_confirmation]">
+                  </div>
+
+              <div class="modal-footer">
+                <button id="close-modal" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-outline-secondary sign-up-button">Confirm</button>
+              </div>
+                </form>
+          </div>
+            </div>
+          </div>
+        </div>
+        <div class="response alert fade show alert-dark" role="alert"></div>
+<!-- update modal finish -->
+
+
     </body>
 </html>

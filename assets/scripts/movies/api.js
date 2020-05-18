@@ -35,7 +35,7 @@ const createMovie = data => {
   })
 }
 
-const getOneMovie = id => {
+const findOneMovie = id => {
   return $.ajax({
     url: config.apiUrl + '/movies/' + id,
     headers: {
@@ -57,7 +57,7 @@ const deleteMovie = id => {
 module.exports = {
   getMovies,
   createMovie,
-  getOneMovie,
+  findOneMovie,
   updateMovie,
   deleteMovie
 }

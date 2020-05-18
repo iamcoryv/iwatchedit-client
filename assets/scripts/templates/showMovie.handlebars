@@ -1,0 +1,19 @@
+
+<div class="card" data-id="{{movie.id}}">
+<div class="card-header">
+      {{limit movie.name 20}}
+</div>
+<div class="card-body">
+<p class="card-text">
+      {{limit movie.thoughts 45}}
+</p>
+  {{#if favorite}}
+  <p>Fav</p>
+  {{/if}}
+  {{#if rewatch}}
+  <p>Rewatchable</p>
+  {{/if}}
+
+{{> remove-btn id=movie.id }}
+</div>
+</div>
