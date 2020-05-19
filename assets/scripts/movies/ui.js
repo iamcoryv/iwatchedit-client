@@ -5,11 +5,10 @@ const api = require('./api')
 
 const getMoviesSuccess = function (data) {
   // const jsonMovies = JSON.stringify(data)
-  $('.response').text(`Got movies`)
-  console.log(data)
+  // console.log(data)
   // $('.movies-show').html(`<p> ${jsonMovies} </p>`)
   const showMoviesHtml = showMoviesTemplate({ movie: data.movie })
-  console.log(showMoviesHtml)
+  // console.log(showMoviesHtml)
   $('.movies-show').html(showMoviesHtml)
 }
 
@@ -19,14 +18,14 @@ const getMovieSuccess = function (data) {
   // console.log(data)
   // $('.movies-show').html(`<p> ${jsonMovies} </p>`)
   const showMovieHtml = showMovieTemplate({ movie: data })
-  console.log(showMovieHtml)
+  // console.log(showMovieHtml)
   $('.movies-show').html(showMovieHtml)
 }
 
 const findOneMovieSuccess = function (data) {
   $('form').trigger('reset')
   // $('.response').text(`Got movie`)
-  console.log(data)
+  // console.log(data)
   const showMovieHtml = showMovieTemplate({ movie: data.movie })
   console.log(showMovieHtml)
   $('.movies-show').html(showMovieHtml)
@@ -53,7 +52,6 @@ const createMovieSuccess = function () {
 const createMovieFailure = function (error) {
   $('.alert-danger').text(`I couldn't save your entry.`)
   $('.alert-danger').show('slow').delay(4000).fadeOut()
-  $('.response').text('Couldnt add entry.')
   console.log(error)
   $('form').trigger('reset')
   $('.card').empty()
@@ -63,19 +61,15 @@ const deleteMovieSuccess = function (data) {
   $('.alert-dark').text(`Entry deleted!`)
   $('.alert-dark').show('slow').delay(4000).fadeOut()
   $('form').trigger('reset')
-  console.log('ui delete success triggered')
-
   api.getMovies()
     .then(getMoviesSuccess)
     .catch(getMoviesFailure)
 }
 
-const updateMovieSuccess = function (data) {
-  $('.alert-dark').text(`Entry ${data} updated!`)
+const updateMovieSuccess = function () {
+  $('.alert-dark').text(`Entry updated!`)
   $('.alert-dark').show('slow').delay(4000).fadeOut()
   $('form').trigger('reset')
-  console.log('ui success triggered')
-  // $('.card').empty()
   api.getMovies()
     .then(getMoviesSuccess)
     .catch(getMoviesFailure)

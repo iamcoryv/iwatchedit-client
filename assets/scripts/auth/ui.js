@@ -3,7 +3,6 @@
 const store = require('../store')
 
 const signUpSuccess = data => {
-  $('.response').text('You are all signed up! Time to log in.')
   $('form').trigger('reset')
 }
 
@@ -19,18 +18,18 @@ const signInSuccess = data => {
   $('form').trigger('reset')
   $('.alert-dark').text('Signed in succesfully!')
   $('.alert-dark').show('slow').delay(4000).fadeOut()
+  $('#sign-in-modal').modal('toggle')
 }
 
 const signInFailure = error => {
   console.log(error)
-  $('.response').text('Failed to sign in, try again!')
 }
 
 const changePasswordSuccess = data => {
-  $('.response').text('Password changed!')
   $('form').trigger('reset')
   $('.alert-dark').text('Password changed succesfully!')
   $('.alert-dark').show('slow').delay(4000).fadeOut()
+  $('#change-password-modal').modal('toggle')
 }
 
 const changePasswordFailure = () => {
@@ -45,7 +44,8 @@ const signOutSuccess = data => {
 }
 
 const signOutFailure = () => {
-  $('.response').text('Sign out has failed.').css('color', 'red')
+  $('.alert-danger').text('Cant sign out.')
+  $('.alert-danger').show('slow').delay(4000).fadeOut()
 }
 
 // reset values?

@@ -14,8 +14,8 @@ $(() => {
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('.change-password').on('submit', authEvents.onChangePassword)
-  $('#sign-out').on('submit', authEvents.onSignOut)
-// movie
+  $('#sign-out').on('click', authEvents.onSignOut)
+  // movie
   $('#movies').on('click', movieEvents.onGetMovies)
   $('#newMovie').on('submit', movieEvents.onCreateMovie)
   $('.findOneMovie').on('submit', movieEvents.onFindOneMovie)
@@ -24,9 +24,6 @@ $(() => {
   // modal toggles
   $('#sign-up').on('submit', function () {
     $('#sign-up-modal').modal('toggle')
-  })
-  $('#sign-in').on('submit', function () {
-    $('#sign-in-modal').modal('toggle')
   })
 
   //search function

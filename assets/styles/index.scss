@@ -8,32 +8,13 @@ body {
   background-size: cover;
 }
 
-.navbarContainer {
-  justify-content: flex-start;
-  margin-left: 0;
-  margin-right: 0;
-  padding: 0;
-}
-
-.nav-buttons {
-justify-content: flex-start;
-margin-right: 12px;
-
-}
-.searchRow {
-  justify-content: flex-end;
-}
-
-.navBut {
-margin-left: 12px;
-}
-
 .inputs {
   display: block;
 }
 
-.navbar {
-  justify-content: flex-start;
+.navbar-nav{
+  margin: auto;
+  margin-left: 5px;
 }
 
 .check {

@@ -11,9 +11,9 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
-    <body>
-  <!-- NAV -->
 
+  <!-- NAV -->
+<!--
   <div class="container navbarContainer full-width">
     <a class="navbar-brand" href="#">iWatchedIt</a>
     <div class="row nav-buttons">
@@ -30,9 +30,49 @@
   </form>
 </div>
   </div>
-  </nav>
+  </nav> -->
 <!-- Nav end  -->
 
+<!-- Nav test -->
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">iWatchedIt</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+
+    <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Watched
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#" id="movies">See Watched</a>
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#newMovieModal">Add New Watched</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Account
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item"  href="#" data-toggle="modal" data-target="#change-password-modal">Change Password</a>
+            <a class="dropdown-item" href="#" id="sign-out">Sign Out</a>
+          </div>
+        </li>
+    </ul>
+    <div class="justify-content-end">
+    <form class="form-inline searchMovie">
+     <input class="form-control mr-sm-2 searchMovie" type="text" placeholder="Search" aria-label="Search" name="search">
+     <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<!-- nav test end  -->
+
+  <body>
       <div class="response"></div>
       <!-- alert stuff -->
       <div class="alert alert-dark" role="alert"></div>
@@ -44,7 +84,6 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title">Sign Up</h5>
-                  </button>
             </div>
             <div class="modal-body">
               <form class="sign-up" id="sign-up">
@@ -105,12 +144,13 @@
 <!-- Sign in modal finish -->
 
 <!-- Change password modal -->
-<div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog"  aria-hidden="true" data-backdrop="static" data-keyboard="false">
+<div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog"  aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" >Change Password</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
           <div class="modal-body">
             <form class="change-password" id="change-password">
               <div class="form-group">
@@ -128,13 +168,12 @@
           </div>
             </form>
       </div>
-        </div>
       </div>
     </div>
 </div>
 <!-- change password modal finish -->
 
-<!-- new movie modal       -->
+<!-- new movie modal -->
 <div class="modal fade container-fluid" id="newMovieModal" tabindex="-1" role="dialog"  aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
