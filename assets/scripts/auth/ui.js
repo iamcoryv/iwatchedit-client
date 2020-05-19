@@ -9,16 +9,16 @@ const signUpSuccess = data => {
 
 const signUpFailure = error => {
   console.log(error)
-  $('.response').text('Could not create user, try again')
+  $('.alert-danger').text('Couldnt sign up, try again.')
+  $('.alert-danger').show('slow').delay(4000).fadeOut()
 }
 
 const signInSuccess = data => {
   console.log(data)
   store.user = data.user
-  $('.response').text('Signed in!')
   $('form').trigger('reset')
-  $('.alert').text('Signed in succesfully!')
-  $('.alert').show('slow').delay(4000).fadeOut()
+  $('.alert-dark').text('Signed in succesfully!')
+  $('.alert-dark').show('slow').delay(4000).fadeOut()
 }
 
 const signInFailure = error => {
@@ -29,16 +29,19 @@ const signInFailure = error => {
 const changePasswordSuccess = data => {
   $('.response').text('Password changed!')
   $('form').trigger('reset')
+  $('.alert-dark').text('Password changed succesfully!')
+  $('.alert-dark').show('slow').delay(4000).fadeOut()
 }
 
 const changePasswordFailure = () => {
-  $('.response').text('Cant change password, maybe you had a typo.')
+  $('.alert-danger').text('Cant change password, maybe you had a typo.')
+  $('.alert-danger').show('slow').delay(4000).fadeOut()
 }
 
 const signOutSuccess = data => {
-  store.user = null
-  $('.response').text('')
-  $('.').hide()
+  store.user.token = null
+  $('.card').empty()
+  $('#sign-in-modal').modal('toggle')
 }
 
 const signOutFailure = () => {

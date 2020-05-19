@@ -1,5 +1,5 @@
 {{#each movie as |movie|}}
-<div class="card" data-id="{{movie.id}}">
+<div class="card text-white bg-dark border-secondary" data-id="{{movie.id}}">
 <div class="card-header">
       {{limit movie.name 20}}
 </div>
@@ -17,8 +17,10 @@
   {{#if rating}}
     <p> {{movie.rating}} </p>
   {{/if}}
-
-{{> remove-btn id=movie.id }}
 </div>
+  <div class="card-footer">
+ {{> remove-btn id=movie.id }}
+ </div>
+
 </div>
 {{/each}}

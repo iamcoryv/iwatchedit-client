@@ -9,18 +9,19 @@ const authEvents = require('./auth/events.js')
 
 $(() => {
   $('#sign-in-modal').modal('show')
+  $('.alert').hide()
+  // auth
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
-  $('#change-password').on('submit', authEvents.onChangePassword)
+  $('.change-password').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('submit', authEvents.onSignOut)
-
+// movie
   $('#movies').on('click', movieEvents.onGetMovies)
   $('#newMovie').on('submit', movieEvents.onCreateMovie)
   $('.findOneMovie').on('submit', movieEvents.onFindOneMovie)
   $('.movies-show').on('click', '.remove-movie', movieEvents.onDeleteMovie)
-  // $('.movies-show').on('click', '.update-movie', )
 
-  $('.alert').hide()
+  // modal toggles
   $('#sign-up').on('submit', function () {
     $('#sign-up-modal').modal('toggle')
   })
@@ -28,26 +29,17 @@ $(() => {
     $('#sign-in-modal').modal('toggle')
   })
 
-  // $('.rating input:radio').attr('checked', false)
-  // $('.rating input').click(function () {
-  //   $('.rating span').removeClass('checked')
-  //   $(this).parent().addClass('checked')
-  // })
-  // $('input:radio').change(
-  //   function () {
-  //     const userRating = this.value
-  //     // test alert get rid of this later, annoying and no alerts
-  //     alert(userRating)
-  //   })
+  //search function
+  $('.searchMovie').on('submit', movieEvents.onSearchMovies)
 
-  $('#searchMovie').on('submit', movieEvents.onSearchMovies)
-
-// update stuff
-$('.updateMovie').on('submit', movieEvents.onUpdateMovie)
-  $('.movies-show').on('click', '.update-movie', data => {
-    const id = $('.update-movie').data('id')
+  // update stuff
+  $('.updateMovie').on('submit', movieEvents.onUpdateMovie)
+  $('.movies-show').on('click', '.update-movie', event => {
+    const id = $(event.target).data('id')
     $('#idForm').attr('value', id)
-    $('.modal-title').text(`Update entry ${id}`)
+    $('.update-modal-title').text(`Update entry ${id}`)
   })
-
+  $('update-close-modal').on('click', function () {
+    $('form').trigger('reset')
+  })
 })

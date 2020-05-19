@@ -1,12 +1,39 @@
 @import '~bootstrap/scss/bootstrap';
 
-#container {
-  display: block;
+body {
+  padding-top: 60px;
+  background-image: url('public/cinema.jpg');
+  background-position: center;
+  height: 100vw;
+  background-size: cover;
 }
 
+.navbarContainer {
+  justify-content: flex-start;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+}
+
+.nav-buttons {
+justify-content: flex-start;
+margin-right: 12px;
+
+}
+.searchRow {
+  justify-content: flex-end;
+}
+
+.navBut {
+margin-left: 12px;
+}
 
 .inputs {
   display: block;
+}
+
+.navbar {
+  justify-content: flex-start;
 }
 
 .check {
@@ -15,45 +42,10 @@
 
 .card {
   text-align: center;
+  margin: 10px;
 }
 
-.rating {
-  overflow: hidden;
-  vertical-align: bottom;
-  display: inline-block;
-  width: auto;
-  height: 30px;
-}
 
-.rating > input {
-  opacity: 0;
-  margin-right: -100%;
-}
-
-.rating > label {
-  position: relative;
-  display: block;
-  float: right;
-  background: url('star-off-big.png');
-  background-size: 30px 30px;
-}
-
-.rating > label:before {
-  display: block;
-  opacity: 0;
-  content: '';
-  width: 30px;
-  height: 30px;
-  background: url('star-on-big.png');
-  background-size: 30px 30px;
-  transition: opacity 0.2s linear;
-}
-
-.rating > label:hover:before,  .rating > label:hover ~ label:before,  .rating:not(:hover) > :checked ~ label:before { opacity: 1; }
-
-
-
-.stars {
-  display: block;
-  text-align: center;
+#moviesbtn {
+  padding-right: 10px;
 }

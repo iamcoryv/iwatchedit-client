@@ -32,34 +32,38 @@ const onFindOneMovie = function (event) {
     .catch(ui.findOneMovieFailure)
 }
 
-const onDeleteMovie = function () {
+const onDeleteMovie = function (event) {
   console.log('event triggered')
-  const id = $('.remove-movie').data('id')
+  const id = $(event.target).data('id')
   console.log(id)
   api.deleteMovie(id)
     .then(ui.deleteMovieSuccess)
     .catch(ui.deleteMovieFailure)
+  api.getMovies()
+    .then(ui.getMoviesSuccess)
+    .catch(ui.getMoviesFailure)
 }
 
 const onSearchMovies = function (event) {
   event.preventDefault()
   const form = event.target
+  console.log(form)
   const formData = getFormFields(form)
-  const makeLower = formData.name.toLowerCase()
+  console.log(formData)
+  const makeLower = formData.search.toLowerCase()
   console.log(makeLower)
   api.getMovies(makeLower)
     .then(data => {
       for (let i = 0; i < data.movie.length; i++) {
         console.log(data.movie[i].name)
         if (data.movie[i].name.includes(makeLower)) {
-          console.log('YESS')
           ui.getMovieSuccess(data.movie[i])
         } else {
-          console.log('NOOOO')
+          ui.getMovieFailure(makeLower)
         }
       }
     })
-    .then(console.log)
+    .catch(console.error)
     // .then(data => data.movie.forEach(el => {
     //   console.log(el)
     // }))

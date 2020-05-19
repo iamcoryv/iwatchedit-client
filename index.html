@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>iWatchedIt</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -13,25 +13,37 @@
     </head>
     <body>
   <!-- NAV -->
-  <nav class="navbar fixed-top navbar-dark bg-dark">
+
+  <div class="container navbarContainer full-width">
     <a class="navbar-brand" href="#">iWatchedIt</a>
-    <button class="btn btn-secondary btn-md" id="movies"> See Watched</button>
-    <!-- <button class="btn btn-secondary btn-md" data-toggle="modal" data-target="#sign-up-modal"> Sign Up</button> -->
-    <button class="btn btn-secondary btn-md"data-toggle="modal" data-target="#newMovieModal">Add New</button>
-
+    <div class="row nav-buttons">
+    <button class="btn btn-secondary btn-md navBut" id="movies"> See Watched</button>
+    <button class="btn btn-secondary btn-md navBut"data-toggle="modal" data-target="#newMovieModal">Add New</button>
+  </div>
+  <div class="row searchRow">
+  <form class="form-inline searchMovie">
+   <input class="form-control mr-sm-2 searchMovie" type="text" placeholder="Search" aria-label="Search" name="search">
+   <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+  </form>
+  <form id="sign-out">
+    <button type="submit" class="btn btn-outline-secondary navBut">Sign out</button>
+  </form>
+</div>
+  </div>
   </nav>
+<!-- Nav end  -->
 
-
-      <h1>iWatchedIt</h1>
       <div class="response"></div>
-      <div class="alert alert-success" role="alert"></div>
+      <!-- alert stuff -->
+      <div class="alert alert-dark" role="alert"></div>
+      <div class="alert alert-danger" role="alert"></div>
+      <!-- alert stuff finish -->
   <!-- Sign up modal -->
-  <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog"  aria-hidden="true">
+  <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog"  data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" >Sign Up</h5>
-                <span aria-hidden="true">&times;</span
+              <h5 class="modal-title">Sign Up</h5>
                   </button>
             </div>
             <div class="modal-body">
@@ -48,7 +60,7 @@
                   <label for="message-text" class="col-form-label">Confirm Password</label>
                   <input class="form-control"  required type="password" placeholder="Confirm Password" name="credentials[password_confirmation]">
                 </div>
-
+                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#sign-in-modal" data-dismiss="modal">Sign in</button>
             <div class="modal-footer">
               <!-- <button id="close-modal" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
               <button id="closeSignup" type="submit" class="btn btn-outline-secondary sign-up-button" data-toggle="modal"  data-target="#sign-in-modal">Confirm</button>
@@ -66,8 +78,6 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" >Sign In</h5>
-              <span aria-hidden="true">&times;</span
-                </button>
           </div>
           <div class="modal-body">
             <form class="sign-in" id="sign-in">
@@ -94,31 +104,48 @@
     </div>
 <!-- Sign in modal finish -->
 
-            <div id="authenticated">
-            <form id="change-password">
-              <input required type="password" placeholder="New password" name="passwords[new]">
-              <input required type="password" placeholder="Old Password" name="passwords[old]">
-              <button type="submit">Change Password</button>
-            </form>
+<!-- Change password modal -->
+<div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog"  aria-hidden="true" data-backdrop="static" data-keyboard="false">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" >Change Password</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <div class="modal-body">
+            <form class="change-password" id="change-password">
+              <div class="form-group">
+                <label for="message-text" class="col-form-label">Old Password</label>
+                <input class="form-control"  required type="password" placeholder="Old password" name="passwords[old]">
+              </div>
+              <div class="form-group">
+                <label for="message-text" class="col-form-label">New Password</label>
+                <input class="form-control"  required type="password" placeholder="New password" name="passwords[new]">
+              </div>
 
-            <form id="sign-out">
-              <button type="submit">Sign out</button>
+          <div class="modal-footer">
+            <!-- <button id="close-modal" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+            <button id="closeChangePw" type="submit" class="btn btn-outline-secondary chang-pw-button" data-toggle="modal"  data-target="#change-pw-modal">Change Password</button>
+          </div>
             </form>
-            </div>
+      </div>
+        </div>
+      </div>
+    </div>
+</div>
+<!-- change password modal finish -->
 
 <!-- new movie modal       -->
 <div class="modal fade container-fluid" id="newMovieModal" tabindex="-1" role="dialog"  aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" >Update Entry</h5>
-              <span aria-hidden="true">&times;</span
-                </button>
+            <h5 class="modal-title" >Did you watch something new?</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           </div>
           <div class="modal-body">
             <form id="newMovie">
               <div class="form-group">
-                <input class="inputs form-control" type="text" name="id" value="true" text=" " style="display: none;">
+                <input class="inputs form-control" type="text" name="id" value="true"  style="display: none;">
                 <label class="col-form-label">Title</label>
                 <input class="inputs form-control" type="text" placeholder="Title" name="movie[name]">
               </div>
@@ -131,23 +158,9 @@
                 <input class="inputs check" type="checkbox" name="movie[rewatch]" value="true">
                 <p class="check">Favorite?</p>
                 <input class="inputs check" type="checkbox" name="movie[favorite]" value="true">
-                <!-- <div class="rating inputs stars" name="movie[rating]">
-                  <span class="rating" >
-                      <input id="rating5" type="radio" name="rating" value="5">
-                      <label for="rating5">5</label>
-                      <input id="rating4" type="radio" name="rating" value="4">
-                      <label for="rating4">4</label>
-                      <input id="rating3" type="radio" name="rating" value="3">
-                      <label for="rating3">3</label>
-                      <input id="rating2" type="radio" name="rating" value="2" checked>
-                      <label for="rating2">2</label>
-                      <input id="rating1" type="radio" name="rating" value="1">
-                      <label for="rating1">1</label>
-                  </span>
-                </div> -->
               </div>
           <div class="modal-footer">
-            <button type="button close-modal" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-secondary close-modal" data-dismiss="modal">Close</button>
             <button type="submit" class="btn btn-outline-secondary create-button">Confirm</button>
           </div>
             </form>
@@ -162,9 +175,8 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" >Update Entry</h5>
-                  <span aria-hidden="true">&times;</span
-                    </button>
+                <h5 class="modal-title update-modal-title" >Update Entry</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               </div>
               <div class="modal-body">
                 <form class="updateMovie">
@@ -198,7 +210,7 @@
                     </div> -->
                   </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary close-modal" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary update-close-modal" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-outline-secondary update-button">Confirm</button>
               </div>
                 </form>
@@ -207,7 +219,8 @@
           </div>
         </div>
 <!-- update modal finish -->
-<div class="movies-show"></div>
-
+<div class="container">
+<div class="movies-show row"></div>
+</div>
     </body>
 </html>
