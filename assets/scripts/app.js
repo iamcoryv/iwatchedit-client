@@ -16,15 +16,10 @@ $(() => {
   $('.change-password').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('click', authEvents.onSignOut)
   // movie
-  $('#movies').on('click', movieEvents.onGetMovies)
+  $('.movies').on('click', movieEvents.onGetMovies)
   $('#newMovie').on('submit', movieEvents.onCreateMovie)
   $('.findOneMovie').on('submit', movieEvents.onFindOneMovie)
   $('.movies-show').on('click', '.remove-movie', movieEvents.onDeleteMovie)
-
-  // modal toggles
-  $('#sign-up').on('submit', function () {
-    $('#sign-up-modal').modal('toggle')
-  })
 
   //search function
   $('.searchMovie').on('submit', movieEvents.onSearchMovies)

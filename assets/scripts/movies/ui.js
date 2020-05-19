@@ -10,6 +10,7 @@ const getMoviesSuccess = function (data) {
   const showMoviesHtml = showMoviesTemplate({ movie: data.movie })
   // console.log(showMoviesHtml)
   $('.movies-show').html(showMoviesHtml)
+    $('.titleList').hide()
 }
 
 const getMovieSuccess = function (data) {
@@ -20,6 +21,7 @@ const getMovieSuccess = function (data) {
   const showMovieHtml = showMovieTemplate({ movie: data })
   // console.log(showMovieHtml)
   $('.movies-show').html(showMovieHtml)
+  $('.titleList').hide()
 }
 
 const findOneMovieSuccess = function (data) {
@@ -32,8 +34,8 @@ const findOneMovieSuccess = function (data) {
 }
 
 const getMovieFailure = function (data) {
-  $('.alert-danger').text(`I couldn't find an entry with "${data}" in it.`)
-  $('.alert-danger').show('slow').delay(4000).fadeOut()
+  // $('.alert-danger').text(`I couldn't find an entry with "${data}" in it.`)
+  // $('.alert-danger').show('slow').delay(4000).fadeOut()
 }
 const getMoviesFailure = function () {
   $('.alert-danger').text(`I couldn't find your entries.`)
@@ -50,10 +52,9 @@ const createMovieSuccess = function () {
 }
 
 const createMovieFailure = function (error) {
-  $('.alert-danger').text(`I couldn't save your entry.`)
-  $('.alert-danger').show('slow').delay(4000).fadeOut()
+  $('.addMovieFailureAlert').text(`Name and Thoughts are Required`)
+  $('.addMovieFailureAlert').show('slow').delay(4000).fadeOut()
   console.log(error)
-  $('form').trigger('reset')
   $('.card').empty()
 }
 
@@ -76,7 +77,8 @@ const updateMovieSuccess = function () {
 }
 
 const deleteMovieFailure = function (error) {
-  $('.response').text('Couldnt delete movie...')
+  $('.alert-danger').text(`I couldn't delete your entry.`)
+  $('.alert-danger').show('slow').delay(4000).fadeOut()
   console.log(error)
   $('form').trigger('reset')
 }

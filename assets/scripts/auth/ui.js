@@ -4,12 +4,14 @@ const store = require('../store')
 
 const signUpSuccess = data => {
   $('form').trigger('reset')
+  $('#sign-up-modal').modal('toggle')
+  $('#sign-in-modal').modal('toggle')
 }
 
 const signUpFailure = error => {
   console.log(error)
-  $('.alert-danger').text('Couldnt sign up, try again.')
-  $('.alert-danger').show('slow').delay(4000).fadeOut()
+  $('.signUpFailureAlert').text('Account exists, or passwords do not match.')
+  $('.signUpFailureAlert').show('slow').delay(4000).fadeOut()
 }
 
 const signInSuccess = data => {
@@ -19,10 +21,13 @@ const signInSuccess = data => {
   $('.alert-dark').text('Signed in succesfully!')
   $('.alert-dark').show('slow').delay(4000).fadeOut()
   $('#sign-in-modal').modal('toggle')
+  $('.modalError').empty()
 }
 
 const signInFailure = error => {
   console.log(error)
+  $('.signInFailureAlert').text('Wrong Credentials')
+  $('.signInFailureAlert').show('slow').delay(3000).fadeOut()
 }
 
 const changePasswordSuccess = data => {
@@ -33,14 +38,16 @@ const changePasswordSuccess = data => {
 }
 
 const changePasswordFailure = () => {
-  $('.alert-danger').text('Cant change password, maybe you had a typo.')
-  $('.alert-danger').show('slow').delay(4000).fadeOut()
+  $('.chPwFailureAlert').text('Cant change password, maybe you had a typo.')
+  $('.chPwFailureAlert').show('slow').delay(4000).fadeOut()
 }
 
 const signOutSuccess = data => {
   store.user.token = null
-  $('.card').empty()
+  // $('.card').empty()
+  $('.movies-show').html('')
   $('#sign-in-modal').modal('toggle')
+  $('.titleList').show()
 }
 
 const signOutFailure = () => {
