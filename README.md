@@ -7,15 +7,16 @@ Links:
 - [deployed link](https://iamcoryv.github.io/iwatchedit-client/)
 - [API Repo](https://github.com/iamcoryv/iwatchedit-api)
 
-### technologies used
+### technologies used\
+- HTML
+- CSS
+- Handlebars
+- Bootstrap
 - JavaScript
 - jQuery
 - API integration
-- AJAX
-- MongoDB
-- Mongoose
-- Express
- - Bcrypt/passport packages
+- AJA
+
 
 ### User Stories
 - As a user I want to be able to save my thought on different movies I have watched.
