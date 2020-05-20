@@ -7,7 +7,7 @@ const signUp = data => {
   return $.ajax({
     url: config.apiUrl + '/sign-up',
     method: 'POST',
-    data: JSON.stringify(data)
+    data: data
   })
 }
 
