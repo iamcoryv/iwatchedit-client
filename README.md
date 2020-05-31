@@ -24,7 +24,7 @@ Links:
 - As a user I would like to make a list of my favorite movies.
 - As a user I want to be able to have my own account that is secure to store my movie watching data.
 
-![wireframe](https://i.imgur.com/n9vFXVf.png)
+![wireframe](https://i.imgur.com/m5eYZr3.png)
 ![ERD](https://i.imgur.com/n9vFXVf.png)
 
 ### Future Iterations
