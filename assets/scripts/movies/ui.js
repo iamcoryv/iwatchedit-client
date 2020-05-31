@@ -5,12 +5,18 @@ const api = require('./api')
 
 const getMoviesSuccess = function (data) {
   // const jsonMovies = JSON.stringify(data)
-  // console.log(data)
+  console.log(data)
   // $('.movies-show').html(`<p> ${jsonMovies} </p>`)
   const showMoviesHtml = showMoviesTemplate({ movie: data.movie })
-  // console.log(showMoviesHtml)
-  $('.movies-show').html(showMoviesHtml)
-    $('.titleList').hide()
+  console.log(showMoviesHtml)
+  if (data.movie.length >= 1) {
+    $('.movies-show').html(showMoviesHtml)
+  } else {
+    $('.movies-show').html(showMoviesHtml)
+    $('.alert-danger').text(`You have no movies!`)
+    $('.alert-danger').show('slow').delay(4000).fadeOut()
+  }
+  $('.titleList').hide()
 }
 
 const getMovieSuccess = function (data) {

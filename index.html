@@ -41,12 +41,12 @@
           </div>
         </li>
     </ul>
-    <div class="justify-content-end">
+    <!-- <div class="justify-content-end">
     <form class="form-inline searchMovie">
      <input class="form-control mr-sm-2 searchMovie" type="text" placeholder="Search" aria-label="Search" name="search">
      <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
     </form>
-  </div>
+  </div> -->
 </nav>
 
 <!-- nav test end  -->
@@ -83,10 +83,11 @@
                   <label for="message-text" class="col-form-label">Confirm Password</label>
                   <input class="form-control"  required type="password" placeholder="Confirm Password" name="credentials[password_confirmation]">
                 </div>
-                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#sign-in-modal" data-dismiss="modal">Sign in</button>
+                <p>Already have an account?</p>
+                <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#sign-in-modal" data-dismiss="modal">Sign in</button>
             <div class="modal-footer">
               <!-- <button id="close-modal" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-              <button id="closeSignup" type="submit" class="btn btn-outline-secondary sign-up-button">Confirm</button>
+              <button id="closeSignup" type="submit" class="btn btn-secondary sign-up-button">Confirm</button>
             </div>
               </form>
         </div>
@@ -115,12 +116,13 @@
                 <input class="form-control"  required type="password" placeholder="Enter Your Password" name="credentials[password]">
               </div>
               <div class="form-group">
-                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#sign-up-modal" data-dismiss="modal">Sign Up</button>
+                <p>Don't have an account?</p>
+                <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#sign-up-modal" data-dismiss="modal">Sign Up</button>
               </div>
 
           <div class="modal-footer">
             <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-            <button type="submit" class="btn btn-outline-secondary sign-in-button">Confirm</button>
+            <button type="submit" class="btn btn-secondary sign-in-button">Confirm</button>
           </div>
             </form>
       </div>
