@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>iWatchedIt</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+
+<!-- Nav test -->
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">iWatchedIt</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+
+    <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Watched
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item movies" href="#">My Watched List</a>
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#newMovieModal">Add New Watched</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Account
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item"  href="#" data-toggle="modal" data-target="#change-password-modal">Change Password</a>
+            <a class="dropdown-item" href="#" id="sign-out">Sign Out</a>
+          </div>
+        </li>
+    </ul>
+    <!-- <div class="justify-content-end">
+    <form class="form-inline searchMovie">
+     <input class="form-control mr-sm-2 searchMovie" type="text" placeholder="Search" aria-label="Search" name="search">
+     <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div> -->
+</nav>
+
+<!-- nav test end  -->
+
+  <body>
+
+
+
+      <div class="response"></div>
+      <!-- alert stuff -->
+      <div class="alert alert-dark" role="alert"></div>
+      <div class="alert alert-danger" role="alert"></div>
+      <!-- alert stuff finish -->
+
+  <!-- Sign up modal -->
+  <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog"  data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Sign Up</h5>
+            </div>
+            <div class="modal-body">
+              <div class="alert alert-warning signUpFailureAlert" role="alert"></div>
+              <form class="sign-up" id="sign-up">
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Email</label>
+                  <input class="form-control" required type="text" placeholder="Enter Your Email" name="credentials[email]">
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Password</label>
+                  <input class="form-control"  required type="password" placeholder="Enter Your Password" name="credentials[password]">
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Confirm Password</label>
+                  <input class="form-control"  required type="password" placeholder="Confirm Password" name="credentials[password_confirmation]">
+                </div>
+                <p>Already have an account?</p>
+                <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#sign-in-modal" data-dismiss="modal">Sign in</button>
+            <div class="modal-footer">
+              <!-- <button id="close-modal" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+              <button id="closeSignup" type="submit" class="btn btn-secondary sign-up-button">Confirm</button>
+            </div>
+              </form>
+        </div>
+          </div>
+        </div>
+      </div>
+<!-- End sign up modal  -->
+
+<!-- Sign in modal -->
+<div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog"  aria-hidden="true"  data-backdrop="static" data-keyboard="false">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" >Sign In</h5>
+          </div>
+          <div class="modal-body">
+            <div class="alert alert-warning signInFailureAlert" role="alert"></div>
+            <form class="sign-in" id="sign-in">
+              <div class="form-group">
+                <p class="modalError"> </p>
+                <label for="recipient-name" class="col-form-label">Email</label>
+                <input class="form-control" required type="text" placeholder="Enter Your Email" name="credentials[email]">
+              </div>
+              <div class="form-group">
+                <label for="message-text" class="col-form-label">Password</label>
+                <input class="form-control"  required type="password" placeholder="Enter Your Password" name="credentials[password]">
+              </div>
+              <div class="form-group">
+                <p>Don't have an account?</p>
+                <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#sign-up-modal" data-dismiss="modal">Sign Up</button>
+              </div>
+
+          <div class="modal-footer">
+            <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+            <button type="submit" class="btn btn-secondary sign-in-button">Confirm</button>
+          </div>
+            </form>
+      </div>
+        </div>
+      </div>
+    </div>
+<!-- Sign in modal finish -->
+
+<!-- Change password modal -->
+<div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog"  aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" >Change Password</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+          <div class="modal-body">
+              <div class="alert alert-warning chPwFailureAlert" role="alert"></div>
+            <form class="change-password" id="change-password">
+              <div class="form-group">
+                <label for="message-text" class="col-form-label">Old Password</label>
+                <input class="form-control"  required type="password" placeholder="Old password" name="passwords[old]">
+              </div>
+              <div class="form-group">
+                <label for="message-text" class="col-form-label">New Password</label>
+                <input class="form-control"  required type="password" placeholder="New password" name="passwords[new]">
+              </div>
+
+          <div class="modal-footer">
+            <!-- <button id="close-modal" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+            <button id="closeChangePw" type="submit" class="btn btn-outline-secondary chang-pw-button" data-toggle="modal"  data-target="#change-pw-modal">Change Password</button>
+          </div>
+            </form>
+      </div>
+      </div>
+    </div>
+</div>
+<!-- change password modal finish -->
+
+<!-- new movie modal -->
+<div class="modal fade container-fluid" id="newMovieModal" tabindex="-1" role="dialog"  aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" >Did you watch something new?</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <div class="alert alert-warning addMovieFailureAlert" role="alert"></div>
+            <form id="newMovie">
+              <div class="form-group">
+                <input class="inputs form-control" type="text" name="id" value="true"  style="display: none;">
+                <label class="col-form-label">Title</label>
+                <input class="inputs form-control" type="text" placeholder="Title" name="movie[name]">
+              </div>
+              <div class="form-group">
+                <label for="message-text" class="col-form-label">Thoughts</label>
+                <textarea class="inputs form-control" rows="3" cols="30" placeholder="Thoughts..." name="movie[thoughts]"></textarea>
+              </div>
+              <div class="form-group">
+                <p class="check">Rewatchable?</p>
+                <input class="inputs check" type="checkbox" name="movie[rewatch]" value="true">
+                <p class="check">Favorite?</p>
+                <input class="inputs check" type="checkbox" name="movie[favorite]" value="true">
+              </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary close-modal" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-outline-secondary create-button">Confirm</button>
+          </div>
+            </form>
+      </div>
+        </div>
+      </div>
+    </div>
+ <!-- new movie modal finished -->
+
+<!-- update modal -->
+    <div class="modal fade container-fluid" id="updateModal" tabindex="-1" role="dialog"  aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title update-modal-title" >Update Entry</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="modal-body">
+                <form class="updateMovie">
+                  <div class="form-group">
+                    <input id="idForm" class="inputs " type="text" name="id" value="true" text=" " style="display: none;">
+                    <label class="col-form-label">Title</label>
+                    <input id="updateTitle"class="inputs form-control" type="text" placeholder="Title" name="movie[name]">
+                  </div>
+                  <div class="form-group ">
+                    <label for="message-text" class="col-form-label">Thoughts</label>
+                    <textarea id="updateThoughts"class="inputs form-control" rows="3" cols="30" placeholder="Thoughts..." name="movie[thoughts]"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <p class="check">Rewatchable?</p>
+                    <input class="inputs check" type="checkbox" name="movie[rewatch]" value="true">
+                    <p class="check">Favorite?</p>
+                    <input class="inputs check" type="checkbox" name="movie[favorite]" value="true">
+                    <!-- <div class="rating inputs stars" name="movie[rating]">
+                      <span class="rating" >
+                          <input id="rating5" type="radio" name="rating" value="5">
+                          <label for="rating5">5</label>
+                          <input id="rating4" type="radio" name="rating" value="4">
+                          <label for="rating4">4</label>
+                          <input id="rating3" type="radio" name="rating" value="3">
+                          <label for="rating3">3</label>
+                          <input id="rating2" type="radio" name="rating" value="2" checked>
+                          <label for="rating2">2</label>
+                          <input id="rating1" type="radio" name="rating" value="1">
+                          <label for="rating1">1</label>
+                      </span>
+                    </div> -->
+                  </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary update-close-modal" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-outline-secondary update-button">Confirm</button>
+              </div>
+                </form>
+          </div>
+            </div>
+          </div>
+        </div>
+<!-- update modal finish -->
+<div class="titleText">
+      <h1> i<span id="titlespan">Watched</span>It </h1>
+  <div class="titleList">
+      <h4 class="movies  titleList"> Click here to view my list </h4>
+  </div>
+  </div>
+
+<div class="container">
+<div class="movies-show row"></div>
+</div>
+    </body>
+</html>
