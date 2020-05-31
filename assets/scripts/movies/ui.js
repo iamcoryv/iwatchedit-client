@@ -5,10 +5,10 @@ const api = require('./api')
 
 const getMoviesSuccess = function (data) {
   // const jsonMovies = JSON.stringify(data)
-  console.log(data)
+  // console.log(data)
   // $('.movies-show').html(`<p> ${jsonMovies} </p>`)
   const showMoviesHtml = showMoviesTemplate({ movie: data.movie })
-  console.log(showMoviesHtml)
+  // console.log(showMoviesHtml)
   if (data.movie.length >= 1) {
     $('.movies-show').html(showMoviesHtml)
   } else {

@@ -24,7 +24,7 @@ const onFindOneMovie = function (event) {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
-  console.log(formData)
+  // console.log(formData)
   // const sendData = JSON.stringify(formData._id)
   // console.log(sendData._id)
   api.findOneMovie(formData._id)
@@ -35,7 +35,7 @@ const onFindOneMovie = function (event) {
 const onDeleteMovie = function (event) {
   console.log('event triggered')
   const id = $(event.target).data('id')
-  console.log(id)
+  // console.log(id)
   api.deleteMovie(id)
     .then(ui.deleteMovieSuccess)
     .catch(ui.deleteMovieFailure)
@@ -47,15 +47,15 @@ const onDeleteMovie = function (event) {
 const onSearchMovies = function (event) {
   event.preventDefault()
   const form = event.target
-  console.log(form)
+  // console.log(form)
   const formData = getFormFields(form)
-  console.log(formData)
+  // console.log(formData)
   const makeLower = formData.search.toLowerCase()
-  console.log(makeLower)
+  // console.log(makeLower)
   api.getMovies(makeLower)
     .then(data => {
       for (let i = 0; i < data.movie.length; i++) {
-        console.log(data.movie[i].name)
+        // console.log(data.movie[i].name)
         if (data.movie[i].name.includes(makeLower)) {
           ui.getMovieSuccess(data.movie[i])
         } else {
